@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    font-family: 'Arial';
 }
 .searchDiv{
     position: fixed;
@@ -52,6 +53,8 @@ body{
     border-radius: 1vw;
     color: white;
     text-decoration: none;
+    font-family: 'Tangerine';
+    font-size: 3vw;
 }
 #shopNow:hover{
     background-color: rgb(53, 51, 45);
@@ -89,6 +92,9 @@ body{
     text-align: right;
     
 }
+.addToCart p{
+    float: left;
+}
 .addToCartAnchor{
     width: 100%;
     /* background-color: red; */
@@ -98,4 +104,14 @@ footer{
     background-image: linear-gradient(to right,rgb(246, 121, 63), rgb(255, 255, 255));
     width: 100%;
     height: 25vw;
+    padding: 20px;
+}
+li{
+    margin-bottom: 1vw;
+    /* text-decoration: none; */
+}
+li a{
+    /* margin-bottom: 1vw; */
+    text-decoration: none;
+    color: rgb(0, 0, 0);
 }
