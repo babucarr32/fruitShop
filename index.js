@@ -38,6 +38,7 @@ function createProduct(img){
     addToCart.className = 'addToCart';
     const addToCartAnchor = document.createElement('a');
     addToCartAnchor.className = 'addToCartAnchor';
+    addToCartAnchor.href = "#";
     const materialSymbol = document.createElement('span');
     materialSymbol.className = 'material-symbols-outlined';
     materialSymbol.style.fontSize = '30px';

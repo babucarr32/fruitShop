@@ -7,7 +7,14 @@ body{
     background-color: rgba(37, 37, 37, 0.738);
     width: 100%;
 }
-
+.cart{
+    font-size: 30px;
+    float: right;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
 #search{
     width: 30%;
     box-sizing: border-box;
@@ -90,5 +97,5 @@ body{
 footer{
     background-image: linear-gradient(to right,rgb(246, 121, 63), rgb(255, 255, 255));
     width: 100%;
-    height: 15vw;
+    height: 25vw;
 }
