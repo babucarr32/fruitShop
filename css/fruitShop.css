@@ -1,0 +1,94 @@
+body{
+    margin: 0;
+}
+.searchDiv{
+    position: fixed;
+    text-align: center;
+    background-color: rgba(37, 37, 37, 0.738);
+    width: 100%;
+}
+
+#search{
+    width: 30%;
+    box-sizing: border-box;
+    border: 2px solid rgb(149, 146, 146);
+    border-radius: 3vw;
+    font-size: 16px;
+    background-color: rgba(37, 37, 37, 0.738);
+    background-image: url('search.svg');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    color: white;
+    outline: none;
+}
+#search:focus{
+    border: 2px solid rgb(255, 255, 255);
+}
+.bgImageDiv{
+    background-color: rgb(246, 121, 63);
+    text-align: center;
+    height: auto;
+}
+.bgImage{
+    width: 50%;   
+}
+.shopNowDiv{
+    margin-bottom: -40px;
+    /* background-color: rgb(255, 196, 0); */
+    padding: 20px;
+}
+#shopNow{
+    background-color: rgba(42, 40, 35, 0.894);
+    width: 100%;
+    padding: 1vw 5vw;
+    border-radius: 1vw;
+    color: white;
+    text-decoration: none;
+}
+#shopNow:hover{
+    background-color: rgb(53, 51, 45);
+}
+.containerGrid{
+    margin-top: 2vw;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    padding: 4vw;
+}
+.image{
+    /* width: 50%; */
+    /* background-color: pink; */
+    text-align: center;
+    padding: 1vw;
+}
+.fruitImageGrid{
+    width: 100%;
+}
+#fruitTitle{
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+.fruitTitleNcart{
+    background-color: rgb(246, 121, 63);
+    height: auto;
+    padding: 1vw;
+    border-radius: 0 0 1vw 1vw;
+    box-shadow: 0 3px 8px 1px;
+}
+.addToCart{
+    width: 100%;
+    /* background-color: green; */
+    text-align: right;
+    
+}
+.addToCartAnchor{
+    width: 100%;
+    /* background-color: red; */
+    color: rgb(50, 51, 52);
+}
+footer{
+    background-image: linear-gradient(to right,rgb(246, 121, 63), rgb(255, 255, 255));
+    width: 100%;
+    height: 15vw;
+}
