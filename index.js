@@ -1,6 +1,7 @@
 import { imageNames } from "./indexPlus.js";
 for(let fileName of imageNames){
     console.log(fileName);
+    document.querySelector("#containerGridID").append(createProduct(fileName))
 }
 // Creating DOM for images
 /*
@@ -31,6 +32,7 @@ function createProduct(img){
     fruitTitleDiv.className = 'fruitTitleDiv';
     const fruitTitle = document.createElement('h3');
     fruitTitle.className = 'fruitTitle';
+    fruitTitle.innerHTML = 'Fruit';
     //Create add to cart icon
     const addToCart =  document.createElement('div');
     addToCart.className = 'addToCart';
@@ -45,8 +47,9 @@ function createProduct(img){
     addToCartAnchor.append(materialSymbol);
     addToCart.append(addToCartAnchor);
     fruitTitleDiv.append(fruitTitle);
-    fruitTitleNcart.append(addToCart, fruitTitleDiv);
+    fruitTitleNcart.append(fruitTitleDiv, addToCart);
     mainImageGrid.append(image, fruitTitleNcart);
-    console.log(mainImageGrid.outerHTML);
+    // console.log(mainImageGrid.outerHTML);
+    return mainImageGrid
 }
-createProduct('meal-gf9c21626a_1920.png')
+// createProduct()

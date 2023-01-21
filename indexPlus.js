@@ -1,6 +1,5 @@
 export const imageNames = [
     "plums-g22f8139e5_640.jpg",
-    "apples-g3e48e8bca_640.jpg",
     "cherries-g243662146_640.jpg",
     "apples-g9dd35cbde_640.jpg",
     "ilona-frey-7V5HdfPZKP4-unsplash.jpg",
@@ -11,10 +10,8 @@ export const imageNames = [
     "watermelon-g63c2107dd_1920.jpg",
     "raspberries-g5cba7a976_640.jpg",
     "grapes-ge74c1b960_640.jpg",
-    "tomatoes-gaf0ca5731_640.jpg",
     "engin-akyurt-dCSU6fPP1i8-unsplash.jpg",
     "engin-akyurt-kQIRZiMpV4o-unsplash.jpg",
-    "tangerines-gedce51910_640.jpg",
     "smoothie-g1c036c965_640.jpg",
     "strawberries-g1c1eb5b6f_640.jpg",
     "food-gfb3e0dec0_640.jpg",
@@ -24,5 +21,4 @@ export const imageNames = [
     "istockphoto-173888437-170667a.jpg",
     "flower-gf348a473c_1920.jpg",
     "tomatoes-g7a4e46557_640.jpg",
-    "quaritsch-photography-lZ8onQ1wuY8-unsplash(1).jpg",
 ]
