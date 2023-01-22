@@ -1,8 +1,11 @@
 import { imageNames } from "./indexPlus.js";
-for(let fileName of imageNames){
-    // console.log(fileName);
-    document.querySelector("#containerGridID").append(createProduct(fileName.imageName, fileName.name, fileName.price));
+function createproducs(){
+    for(let fileName of imageNames){
+        // console.log(fileName);
+        document.querySelector("#containerGridID").append(createProduct(fileName.imageName, fileName.name, fileName.price));
+    }
 }
+createproducs()
 // Creating DOM for images
 /*
 <div class="image">
@@ -65,7 +68,44 @@ function createProduct(img, name, price){
 // create cart() function
 
 function cart(){
-    let itemPrice = this.parentElement.children[1].outerText;
-    itemPrice = itemPrice.split("$");
-    console.log(itemPrice[1]);
+    let parent = this.parentElement;
+    let imageTag = parent.parentElement.parentElement.children[0];
+    let fruitTag = parent.parentElement.parentElement.children[1];
+    const imageName = imageTag.src.split("/images/")[1]; // get the name of the image
+    const fruitName = fruitTag.children[0].children[0].innerHTML;
+    const fruitPrice = fruitTag.children[1].children[1].outerText.split("$")[1];
+    console.log(imageName);
+    console.log(fruitName);
+    console.log(fruitPrice);
+    // let itemPrice = this.parentElement.children[1].outerText; // climbing to get the parent object
+    // itemPrice = itemPrice.split("$"); // Split
+    // const totalprice = itemPrice[1]; //  get the product price
+    // console.log(totalprice);
+    // // test(totalprice);
+    let items = localStorage.getItem('items');
+    if(items){
+        items = JSON.parse(items);
+    }
+    else{
+        items = [];
+    }
+    items.push({
+        name: fruitName,
+        imageName: imageName,
+        price: fruitPrice});
+    localStorage.setItem('items', JSON.stringify(items));
+    // return totalprice;
 }
+
+// Store data in Local Storage
+// function storeDataLS(){
+//     let items = localStorage.getItem('items');
+//     // items =  getItemList();
+//     items.push({
+
+//     })
+// }
+// Needs review
+// export function test(x){
+//     console.log(x);
+// }
