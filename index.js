@@ -1,7 +1,7 @@
 import { imageNames } from "./indexPlus.js";
 for(let fileName of imageNames){
-    console.log(fileName);
-    // document.querySelector("#containerGridID").append(createProduct(fileName.imageName, fileName.name, fileName.price))
+    // console.log(fileName);
+    document.querySelector("#containerGridID").append(createProduct(fileName.imageName, fileName.name, fileName.price));
 }
 // Creating DOM for images
 /*
@@ -12,6 +12,7 @@ for(let fileName of imageNames){
             <h3 id="fruitTitle">Orange</h3>
         </div>
         <div class="addToCart">
+            <p><b>Price: 350</b></p>
             <a class="addToCartAnchor" href="#">
                 <span class="material-symbols-outlined" style="font-size: 30px;">add</span>
             </a>
@@ -31,23 +32,29 @@ function createProduct(img, name, price){
     const fruitTitleDiv = document.createElement('div');
     fruitTitleDiv.className = 'fruitTitleDiv';
     const fruitTitle = document.createElement('h3');
-    fruitTitle.className = 'fruitTitle';
+    fruitTitle.id = 'fruitTitle';
     fruitTitle.innerHTML = name;
     //Create add to cart icon
     const addToCart =  document.createElement('div');
     addToCart.className = 'addToCart';
     const priceName = document.createElement('p');
-    priceName.innerHTML = price;
+    const boldPrice = document.createElement('b');
+    boldPrice.innerHTML = `Price: $${price}`;
     const addToCartAnchor = document.createElement('a');
+    addToCartAnchor.onclick = cart;
+    addToCartAnchor.id = 'callCart';
     addToCartAnchor.className = 'addToCartAnchor';
     addToCartAnchor.href = "#";
     const materialSymbol = document.createElement('span');
     materialSymbol.className = 'material-symbols-outlined';
+    
+   
     materialSymbol.style.fontSize = '30px';
     materialSymbol.innerText = 'add';
 
     //nesting the elemnts
     addToCartAnchor.append(materialSymbol);
+    priceName.append(boldPrice);
     addToCart.append(addToCartAnchor, priceName);
     fruitTitleDiv.append(fruitTitle);
     fruitTitleNcart.append(fruitTitleDiv, addToCart);
@@ -55,4 +62,10 @@ function createProduct(img, name, price){
     // console.log(mainImageGrid.outerHTML);
     return mainImageGrid
 }
-// createProduct()
+// create cart() function
+
+function cart(){
+    let itemPrice = this.parentElement.children[1].outerText;
+    itemPrice = itemPrice.split("$");
+    console.log(itemPrice[1]);
+}

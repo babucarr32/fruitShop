@@ -72,6 +72,9 @@ body{
     text-align: center;
     padding: 1vw;
 }
+.image:hover{
+    transform: scale(1.1);
+}
 .fruitImageGrid{
     width: 100%;
 }
