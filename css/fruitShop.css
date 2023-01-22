@@ -90,10 +90,12 @@ body{
     width: 100%;
     /* background-color: green; */
     text-align: right;
+    /* height: 30px; */
     
 }
 .addToCart p{
     float: left;
+    margin-top: 8px;
 }
 .addToCartAnchor{
     width: 100%;

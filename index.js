@@ -1,7 +1,7 @@
 import { imageNames } from "./indexPlus.js";
 for(let fileName of imageNames){
     console.log(fileName);
-    document.querySelector("#containerGridID").append(createProduct(fileName))
+    // document.querySelector("#containerGridID").append(createProduct(fileName.imageName, fileName.name, fileName.price))
 }
 // Creating DOM for images
 /*
@@ -19,7 +19,7 @@ for(let fileName of imageNames){
     </div>
 <div>
 */
-function createProduct(img){
+function createProduct(img, name, price){
     const mainImageGrid = document.createElement('div');
     mainImageGrid.className = 'image';
     const image = document.createElement('img');
@@ -32,10 +32,12 @@ function createProduct(img){
     fruitTitleDiv.className = 'fruitTitleDiv';
     const fruitTitle = document.createElement('h3');
     fruitTitle.className = 'fruitTitle';
-    fruitTitle.innerHTML = 'Fruit';
+    fruitTitle.innerHTML = name;
     //Create add to cart icon
     const addToCart =  document.createElement('div');
     addToCart.className = 'addToCart';
+    const priceName = document.createElement('p');
+    priceName.innerHTML = price;
     const addToCartAnchor = document.createElement('a');
     addToCartAnchor.className = 'addToCartAnchor';
     addToCartAnchor.href = "#";
@@ -46,7 +48,7 @@ function createProduct(img){
 
     //nesting the elemnts
     addToCartAnchor.append(materialSymbol);
-    addToCart.append(addToCartAnchor);
+    addToCart.append(addToCartAnchor, priceName);
     fruitTitleDiv.append(fruitTitle);
     fruitTitleNcart.append(fruitTitleDiv, addToCart);
     mainImageGrid.append(image, fruitTitleNcart);
