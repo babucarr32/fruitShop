@@ -104,6 +104,7 @@ body{
     width: 100%;
     /* background-color: red; */
     color: rgb(50, 51, 52);
+    cursor: pointer;
 }
 footer{
     background-image: linear-gradient(to right,rgb(246, 121, 63), rgb(255, 255, 255));

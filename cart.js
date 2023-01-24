@@ -3,16 +3,19 @@
 // console.log(test());
 
 let items = localStorage.getItem('items');
+let totalCost = 0;
 if(items){
     items = JSON.parse(items);
     for(let item of items){
-        console.log(item);
+        totalCost += parseInt(item.price);
         document.querySelector('#cartItems').append(cartElements(item.name, item.imageName, item.price));
+        console.log(totalCost);
     }
 }
 else{
     items = [];
 }
+document.querySelector('#total').innerText = `$${totalCost}`;
 
 // Create cart objects
 function cartElements(name, imageName, price){
@@ -30,7 +33,7 @@ function cartElements(name, imageName, price){
     const totalAmount = document.createElement('h3');
     totalAmount.innerText = 'Amount: ';
     const totalSpan = document.createElement('span');
-    totalSpan.innerText = `${price}`;
+    totalSpan.innerText = `$${price}`;
     const aTagforDelIcon = document.createElement('a');
     aTagforDelIcon.href = '#';
     const Icon = document.createElement('span');
