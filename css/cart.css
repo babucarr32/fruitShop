@@ -82,10 +82,14 @@ img{
     border-radius: 2vw 0 0 2vw;
     box-shadow: 0 0 8px 1px rgb(246, 121, 63);
 }
-#itemInfo, .itemInfo{
+#itemInfo{
     padding-left: 10px;
 }
-
+.itemInfo{
+    padding-left: 10px;
+    color: #ffffff;
+    background-color: rgba(41, 40, 40, 0.171);
+}
 .buyDiv{
     width: 100%;
     text-align: center;

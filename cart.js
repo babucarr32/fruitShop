@@ -3,13 +3,14 @@
 // console.log(test());
 
 let items = localStorage.getItem('items');
+console.log(JSON.parse(items)[1]);
 let totalCost = 0;
 if(items){
     items = JSON.parse(items);
     for(let item of items){
         totalCost += parseInt(item.price);
-        document.querySelector('#cartItems').append(cartElements(item.name, item.imageName, item.price));
-        console.log(totalCost);
+        document.querySelector('#cartItems').append(cartElements(item.name, item.imageName, item.price, item.id));
+        console.log(item.id);
     }
 }
 else{
@@ -34,7 +35,7 @@ document.querySelector('#total').innerText = `$${totalCost}`;
     </div>
 </li>
 */
-function cartElements(name, imageName, price){
+function cartElements(name, imageName, price, itemId){
     const listItem = document.createElement('li');
     const flexContainer = document.createElement('div');
     flexContainer.className = 'flexContainer';
@@ -50,6 +51,10 @@ function cartElements(name, imageName, price){
     const cartRight = document.createElement('div');
     cartRight.className = 'cartRight';
     const totalAmount = document.createElement('p');
+    const hideID = document.createElement('p');
+    hideID.id = 'hide';
+    hideID.innerText = itemId;
+    hideID.style.display = 'none';
     totalAmount.className = 'amountAdded noMargin';
     totalAmount.innerText = 'Amount: ';
     const totalSpan = document.createElement('span');
@@ -57,6 +62,7 @@ function cartElements(name, imageName, price){
     totalSpan.style.color = '#0066ff'
     const aTagforDelIcon = document.createElement('a');
     aTagforDelIcon.href = '#';
+    aTagforDelIcon.onclick = deleteProduct;
     const Icon = document.createElement('span');
     Icon.className = 'material-symbols-outlined cart delete';
     Icon.innerText = 'delete_outline';
@@ -64,11 +70,14 @@ function cartElements(name, imageName, price){
     // Append the elements to each other
     aTagforDelIcon.append(Icon);
     totalAmount.append(totalSpan)
-    cartRight.append(totalAmount, aTagforDelIcon);
+    cartRight.append(totalAmount, aTagforDelIcon, hideID);
     fruitName.append(boldFruitName);
     cartLeft.append(fruitName, fruitImage);
     flexContainer.append(cartLeft, cartRight);
     listItem.append(flexContainer)
     // console.log(listItem);
     return listItem;
+}
+function deleteProduct(){
+    console.log(this.parentElement.parentElement);
 }
