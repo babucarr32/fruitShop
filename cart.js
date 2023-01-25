@@ -9,8 +9,8 @@ if(items){
     items = JSON.parse(items);
     for(let item of items){
         totalCost += parseInt(item.price);
-        document.querySelector('#cartItems').append(cartElements(item.name, item.imageName, item.price, item.id));
-        console.log(item.id);
+        document.querySelector('#cartItems').append(cartElements(item.name, item.imageName, item.price, item.fruitID));
+        console.log(item);
     }
 }
 else{
@@ -53,7 +53,7 @@ function cartElements(name, imageName, price, itemId){
     const totalAmount = document.createElement('p');
     const hideID = document.createElement('p');
     hideID.id = 'hide';
-    hideID.innerText = itemId;
+    hideID.innerText = `${itemId}`;
     hideID.style.display = 'none';
     totalAmount.className = 'amountAdded noMargin';
     totalAmount.innerText = 'Amount: ';
@@ -79,5 +79,33 @@ function cartElements(name, imageName, price, itemId){
     return listItem;
 }
 function deleteProduct(){
-    console.log(this.parentElement.parentElement);
+    let items = localStorage.getItem('items');
+    let newItems = JSON.parse(items);
+    let finalItem = [];
+    let itemIDToDel = this.parentElement.children[2].innerHTML;
+
+    for(let x of newItems){
+        if(itemIDToDel === x['fruitID']){
+            console.log(x);
+            // delete newItems[parseInt(intID)];
+            
+        }
+        else{
+            finalItem.push(x)
+        }
+    }
+    console.log(finalItem)
+    // console.log(newItems);
+    // if(items){
+    //     items = newItems;
+    // }
+    // else{
+    //     items = [];
+    // }
+    // items.push(
+    //     items
+    // );
+    // localStorage.setItem('items', JSON.stringify(items));
+    // console.log(items);
+    // console.log(typeof items)
 }

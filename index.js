@@ -2,7 +2,7 @@ import { imageNames } from "./indexPlus.js";
 function createproducs(){
     for(let fileName of imageNames){
         // console.log(fileName);
-        document.querySelector("#containerGridID").append(createProduct(fileName.imageName, fileName.name, fileName.price));
+        document.querySelector("#containerGridID").append(createProduct(fileName.imageName, fileName.name, fileName.price, fileName.id));
     }
 }
 createproducs()
@@ -23,7 +23,7 @@ createproducs()
     </div>
 <div>
 */
-function createProduct(img, name, price){
+function createProduct(img, name, price, id){
     const mainImageGrid = document.createElement('div');
     mainImageGrid.className = 'image';
     const image = document.createElement('img');
@@ -37,6 +37,9 @@ function createProduct(img, name, price){
     const fruitTitle = document.createElement('h3');
     fruitTitle.id = 'fruitTitle';
     fruitTitle.innerHTML = name;
+    const hiideID = document.createElement('p');
+    hiideID.innerText = id;
+    hiideID.style.display = 'none';
     //Create add to cart icon
     const addToCart =  document.createElement('div');
     addToCart.className = 'addToCart';
@@ -58,7 +61,7 @@ function createProduct(img, name, price){
     //nesting the elemnts
     addToCartAnchor.append(materialSymbol);
     priceName.append(boldPrice);
-    addToCart.append(addToCartAnchor, priceName);
+    addToCart.append(addToCartAnchor, priceName, hiideID);
     fruitTitleDiv.append(fruitTitle);
     fruitTitleNcart.append(fruitTitleDiv, addToCart);
     mainImageGrid.append(image, fruitTitleNcart);
@@ -71,12 +74,15 @@ function cart(){
     let parent = this.parentElement;
     let imageTag = parent.parentElement.parentElement.children[0];
     let fruitTag = parent.parentElement.parentElement.children[1];
+    
     const imageName = imageTag.src.split("/images/")[1]; // get the name of the image
     const fruitName = fruitTag.children[0].children[0].innerHTML;
     const fruitPrice = fruitTag.children[1].children[1].outerText.split("$")[1];
+    const fruitID = fruitTag.children[1].children[2].innerText;
     console.log(imageName);
     console.log(fruitName);
     console.log(fruitPrice);
+    console.log(fruitID);
     // let itemPrice = this.parentElement.children[1].outerText; // climbing to get the parent object
     // itemPrice = itemPrice.split("$"); // Split
     // const totalprice = itemPrice[1]; //  get the product price
@@ -85,6 +91,8 @@ function cart(){
     let items = localStorage.getItem('items');
     if(items){
         items = JSON.parse(items);
+        console.log(items);
+        console.log(typeof items);
     }
     else{
         items = [];
@@ -92,7 +100,9 @@ function cart(){
     items.push({
         name: fruitName,
         imageName: imageName,
-        price: fruitPrice});
+        price: fruitPrice,
+        fruitID: fruitID,
+    });
     localStorage.setItem('items', JSON.stringify(items));
     // return totalprice;
 }
