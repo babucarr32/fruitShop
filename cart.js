@@ -1,22 +1,25 @@
 // import { test } from "./indexPlus.js";
 // import { imageNames } from "./indexPlus.js";
 // console.log(test());
-
-let items = localStorage.getItem('items');
-console.log(JSON.parse(items)[1]);
-let totalCost = 0;
-if(items){
-    items = JSON.parse(items);
-    for(let item of items){
-        totalCost += parseInt(item.price);
-        document.querySelector('#cartItems').append(cartElements(item.name, item.imageName, item.price, item.fruitID));
-        console.log(item);
+function home(items){
+    
+    console.log(JSON.parse(items)[1]);
+    let totalCost = 0;
+    if(items){
+        items = JSON.parse(items);
+        for(let item of items){
+            totalCost += parseInt(item.price);
+            document.querySelector('#cartItems').append(cartElements(item.name, item.imageName, item.price, item.fruitID));
+            console.log(item);
+        }
     }
+    else{
+        items = [];
+    }
+    document.querySelector('#total').innerText = `$${totalCost}`;
 }
-else{
-    items = [];
-}
-document.querySelector('#total').innerText = `$${totalCost}`;
+let items = localStorage.getItem('items');
+home(items)
 
 // Create cart objects
 /*
@@ -60,8 +63,12 @@ function cartElements(name, imageName, price, itemId){
     const totalSpan = document.createElement('span');
     totalSpan.innerText = `$${price}`;
     totalSpan.style.color = '#0066ff'
-    const aTagforDelIcon = document.createElement('a');
-    aTagforDelIcon.href = '#';
+    const form = document.createElement('form');
+    form.action = "";
+    form.id = 'formID';
+    form.onclick = formFunc;
+    const aTagforDelIcon = document.createElement('button');
+    // aTagforDelIcon.href = '#';
     aTagforDelIcon.onclick = deleteProduct;
     const Icon = document.createElement('span');
     Icon.className = 'material-symbols-outlined cart delete';
@@ -69,8 +76,9 @@ function cartElements(name, imageName, price, itemId){
     
     // Append the elements to each other
     aTagforDelIcon.append(Icon);
+    form.append(aTagforDelIcon);
     totalAmount.append(totalSpan)
-    cartRight.append(totalAmount, aTagforDelIcon, hideID);
+    cartRight.append(totalAmount, form, hideID);
     fruitName.append(boldFruitName);
     cartLeft.append(fruitName, fruitImage);
     flexContainer.append(cartLeft, cartRight);
@@ -82,8 +90,10 @@ function deleteProduct(){
     let items = localStorage.getItem('items');
     let newItems = JSON.parse(items);
     let finalItem = [];
-    let itemIDToDel = this.parentElement.children[2].innerHTML;
+    let itemIDToDel = this.parentElement.parentElement.children[2].innerText;
+    console.log(itemIDToDel);
 
+    
     for(let x of newItems){
         if(itemIDToDel === x['fruitID']){
             console.log(x);
@@ -94,18 +104,18 @@ function deleteProduct(){
             finalItem.push(x)
         }
     }
-    console.log(finalItem)
-    // console.log(newItems);
-    // if(items){
-    //     items = newItems;
-    // }
-    // else{
-    //     items = [];
-    // }
-    // items.push(
-    //     items
-    // );
-    // localStorage.setItem('items', JSON.stringify(items));
-    // console.log(items);
-    // console.log(typeof items)
+    console.log(finalItem);
+    localStorage.setItem('items', JSON.stringify(finalItem));
+    let items2 = localStorage.getItem('items');
+    console.log(items2);
+}
+
+function formFunc(){
+    console.log(this);
+    this.addEventListener('submit',
+    function(e){
+        e.preventDefault();
+        console.log('Form submitted');
+        deleteProduct();
+    })
 }
