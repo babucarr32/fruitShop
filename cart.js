@@ -3,14 +3,13 @@
 // console.log(test());
 function home(items){
     
-    console.log(JSON.parse(items)[1]);
+    // console.log(JSON.parse(items)[1]);
     let totalCost = 0;
     if(items){
         items = JSON.parse(items);
         for(let item of items){
             totalCost += parseInt(item.price);
             document.querySelector('#cartItems').append(cartElements(item.name, item.imageName, item.price, item.fruitID));
-            console.log(item);
         }
     }
     else{
@@ -40,6 +39,7 @@ home(items)
 */
 function cartElements(name, imageName, price, itemId){
     const listItem = document.createElement('li');
+    // listItem.style.backgroundColor = 'yellow';
     const flexContainer = document.createElement('div');
     flexContainer.className = 'flexContainer';
     const cartLeft = document.createElement('div');
@@ -65,8 +65,8 @@ function cartElements(name, imageName, price, itemId){
     totalSpan.style.color = '#0066ff'
     const form = document.createElement('form');
     form.action = "";
+    // form.onclick = formFunc;
     form.id = 'formID';
-    form.onclick = formFunc;
     const aTagforDelIcon = document.createElement('button');
     // aTagforDelIcon.href = '#';
     aTagforDelIcon.onclick = deleteProduct;
@@ -86,6 +86,8 @@ function cartElements(name, imageName, price, itemId){
     // console.log(listItem);
     return listItem;
 }
+// console.log(cartElements());
+
 function deleteProduct(){
     let items = localStorage.getItem('items');
     let newItems = JSON.parse(items);
@@ -116,6 +118,6 @@ function formFunc(){
     function(e){
         e.preventDefault();
         console.log('Form submitted');
-        deleteProduct();
+        // deleteProduct();
     })
 }
