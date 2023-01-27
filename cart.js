@@ -1,9 +1,4 @@
-// import { test } from "./indexPlus.js";
-// import { imageNames } from "./indexPlus.js";
-// console.log(test());
 function home(items){
-    
-    // console.log(JSON.parse(items)[1]);
     let totalCost = 0;
     if(items){
         items = JSON.parse(items);
@@ -39,7 +34,6 @@ home(items)
 */
 function cartElements(name, imageName, price, itemId){
     const listItem = document.createElement('li');
-    // listItem.style.backgroundColor = 'yellow';
     const flexContainer = document.createElement('div');
     flexContainer.className = 'flexContainer';
     const cartLeft = document.createElement('div');
@@ -65,12 +59,10 @@ function cartElements(name, imageName, price, itemId){
     totalSpan.style.color = '#0066ff'
     const form = document.createElement('form');
     form.action = "";
-    // form.onclick = formFunc;
     form.id = 'formID';
     const aTagforDelIcon = document.createElement('button');
     aTagforDelIcon.style.background = "white";
     aTagforDelIcon.style.border = 'none';
-    // aTagforDelIcon.href = '#';
     aTagforDelIcon.onclick = deleteProduct;
     const Icon = document.createElement('span');
     Icon.className = 'material-symbols-outlined cart delete';
@@ -85,10 +77,8 @@ function cartElements(name, imageName, price, itemId){
     cartLeft.append(fruitName, fruitImage);
     flexContainer.append(cartLeft, cartRight);
     listItem.append(flexContainer);
-    // console.log(listItem);
     return listItem;
 }
-// console.log(cartElements());
 
 function deleteProduct(){
     let items = localStorage.getItem('items');
@@ -96,13 +86,10 @@ function deleteProduct(){
     let finalItem = [];
     let itemIDToDel = this.parentElement.parentElement.children[2].innerText;
     console.log(itemIDToDel);
-
     
     for(let x of newItems){
         if(itemIDToDel === x['fruitID']){
             console.log(x);
-            // delete newItems[parseInt(intID)];
-            
         }
         else{
             finalItem.push(x)
@@ -113,17 +100,14 @@ function deleteProduct(){
     let items2 = localStorage.getItem('items');
     console.log(items2);
 }
-
 function formFunc(){
     console.log(this);
     this.addEventListener('submit',
     function(e){
         e.preventDefault();
         console.log('Form submitted');
-        // deleteProduct();
     })
 }
-
 function sepNum(amount){
     amount = amount.toLocaleString();
     return amount;

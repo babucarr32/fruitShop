@@ -45,7 +45,6 @@ body{
 }
 .shopNowDiv{
     margin-bottom: -40px;
-    /* background-color: rgb(255, 196, 0); */
     padding: 20px;
 }
 #shopNow{
@@ -69,8 +68,6 @@ body{
     padding: 4vw;
 }
 .image{
-    /* width: 50%; */
-    /* background-color: pink; */
     text-align: center;
     padding: 1vw;
 }
@@ -93,10 +90,7 @@ body{
 }
 .addToCart{
     width: 100%;
-    /* background-color: green; */
     text-align: right;
-    /* height: 30px; */
-    
 }
 .addToCart p{
     float: left;
@@ -107,7 +101,6 @@ body{
 }
 .addToCartAnchor{
     width: 100%;
-    /* background-color: red; */
     color: rgb(50, 51, 52);
     cursor: pointer;
 }
@@ -122,10 +115,8 @@ footer{
 }
 li{
     margin-bottom: 1vw;
-    /* text-decoration: none; */
 }
 li a{
-    /* margin-bottom: 1vw; */
     text-decoration: none;
     color: rgb(0, 0, 0);
 }
@@ -151,7 +142,4 @@ li a{
     .emailSubscribe{
         flex-direction: column;
     }
-    /* #email{
-        float: none;
-    } */
 }

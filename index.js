@@ -1,7 +1,6 @@
 import { imageNames } from "./indexPlus.js";
 function createproducs(){
     for(let fileName of imageNames){
-        // console.log(fileName);
         document.querySelector("#containerGridID").append(createProduct(fileName.imageName, fileName.name, fileName.price, fileName.id));
     }
 }
@@ -50,11 +49,8 @@ function createProduct(img, name, price, id){
     addToCartAnchor.onclick = cart;
     addToCartAnchor.id = 'callCart';
     addToCartAnchor.className = 'addToCartAnchor';
-    // addToCartAnchor.href = "#";
     const materialSymbol = document.createElement('span');
     materialSymbol.className = 'material-symbols-outlined addIcon';
-    
-   
     materialSymbol.style.fontSize = '30px';
     materialSymbol.innerText = 'add';
 
@@ -65,7 +61,6 @@ function createProduct(img, name, price, id){
     fruitTitleDiv.append(fruitTitle);
     fruitTitleNcart.append(fruitTitleDiv, addToCart);
     mainImageGrid.append(image, fruitTitleNcart);
-    // console.log(mainImageGrid.outerHTML);
     return mainImageGrid
 }
 // create cart() function
@@ -83,11 +78,6 @@ function cart(){
     console.log(fruitName);
     console.log(fruitPrice);
     console.log(fruitID);
-    // let itemPrice = this.parentElement.children[1].outerText; // climbing to get the parent object
-    // itemPrice = itemPrice.split("$"); // Split
-    // const totalprice = itemPrice[1]; //  get the product price
-    // console.log(totalprice);
-    // // test(totalprice);
     let items = localStorage.getItem('items');
     if(items){
         items = JSON.parse(items);
@@ -104,18 +94,4 @@ function cart(){
         fruitID: fruitID,
     });
     localStorage.setItem('items', JSON.stringify(items));
-    // return totalprice;
 }
-
-// Store data in Local Storage
-// function storeDataLS(){
-//     let items = localStorage.getItem('items');
-//     // items =  getItemList();
-//     items.push({
-
-//     })
-// }
-// Needs review
-// export function test(x){
-//     console.log(x);
-// }
