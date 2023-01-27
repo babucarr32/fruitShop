@@ -7,6 +7,7 @@ body{
     text-align: center;
     background-color: rgba(37, 37, 37, 0.738);
     width: 100%;
+    z-index: 1;
 }
 .cart{
     font-size: 30px;
@@ -99,7 +100,10 @@ body{
 }
 .addToCart p{
     float: left;
-    margin-top: 8px;
+    margin-top: 8px; 
+}
+.addIcon:hover{
+    color: rgb(0, 0, 0);
 }
 .addToCartAnchor{
     width: 100%;
@@ -110,8 +114,11 @@ body{
 
 footer{
     background-image: linear-gradient(to right,rgb(246, 121, 63), rgb(255, 255, 255));
-    height: 25vw;
+    height: 18vw;
     padding: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
 }
 li{
     margin-bottom: 1vw;
@@ -121,4 +128,30 @@ li a{
     /* margin-bottom: 1vw; */
     text-decoration: none;
     color: rgb(0, 0, 0);
+}
+#email{
+    height: 85%;
+    float: left;
+    width: 20vw;
+    border-style: solid;
+    outline: none;
+}
+#subscribe{
+    height: 100%;
+    width: 12vw;
+    border: none;
+    background-color: aqua;
+    padding: 2px;
+}
+#email:focus{
+    border-color: aqua;
+}
+
+@media screen and (max-width: 600px) {
+    .emailSubscribe{
+        flex-direction: column;
+    }
+    /* #email{
+        float: none;
+    } */
 }

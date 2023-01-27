@@ -4,7 +4,7 @@ export const imageNames = [
         id: '1',
         name: "Plums",
         imageName: "plums-g22f8139e5_640.jpg",
-        price: '250',
+        price: '2500',
     },
     {
         id: '2',

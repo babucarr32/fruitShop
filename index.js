@@ -50,9 +50,9 @@ function createProduct(img, name, price, id){
     addToCartAnchor.onclick = cart;
     addToCartAnchor.id = 'callCart';
     addToCartAnchor.className = 'addToCartAnchor';
-    addToCartAnchor.href = "#";
+    // addToCartAnchor.href = "#";
     const materialSymbol = document.createElement('span');
-    materialSymbol.className = 'material-symbols-outlined';
+    materialSymbol.className = 'material-symbols-outlined addIcon';
     
    
     materialSymbol.style.fontSize = '30px';

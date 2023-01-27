@@ -9,13 +9,13 @@ function home(items){
         items = JSON.parse(items);
         for(let item of items){
             totalCost += parseInt(item.price);
-            document.querySelector('#cartItems').append(cartElements(item.name, item.imageName, item.price, item.fruitID));
+            document.querySelector('#cartItems').append(cartElements(item.name, item.imageName, sepNum(parseInt(item.price)), item.fruitID));
         }
     }
     else{
         items = [];
     }
-    document.querySelector('#total').innerText = `$${totalCost}`;
+    document.querySelector('#total').innerText = `$${sepNum(totalCost)}`;
 }
 let items = localStorage.getItem('items');
 home(items)
@@ -59,7 +59,7 @@ function cartElements(name, imageName, price, itemId){
     hideID.innerText = `${itemId}`;
     hideID.style.display = 'none';
     totalAmount.className = 'amountAdded noMargin';
-    totalAmount.innerText = 'Amount: ';
+    totalAmount.innerText = 'Price: ';
     const totalSpan = document.createElement('span');
     totalSpan.innerText = `$${price}`;
     totalSpan.style.color = '#0066ff'
@@ -68,6 +68,8 @@ function cartElements(name, imageName, price, itemId){
     // form.onclick = formFunc;
     form.id = 'formID';
     const aTagforDelIcon = document.createElement('button');
+    aTagforDelIcon.style.background = "white";
+    aTagforDelIcon.style.border = 'none';
     // aTagforDelIcon.href = '#';
     aTagforDelIcon.onclick = deleteProduct;
     const Icon = document.createElement('span');
@@ -82,7 +84,7 @@ function cartElements(name, imageName, price, itemId){
     fruitName.append(boldFruitName);
     cartLeft.append(fruitName, fruitImage);
     flexContainer.append(cartLeft, cartRight);
-    listItem.append(flexContainer)
+    listItem.append(flexContainer);
     // console.log(listItem);
     return listItem;
 }
@@ -120,4 +122,9 @@ function formFunc(){
         console.log('Form submitted');
         // deleteProduct();
     })
+}
+
+function sepNum(amount){
+    amount = amount.toLocaleString();
+    return amount;
 }
